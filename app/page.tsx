@@ -6,9 +6,9 @@ export const dynamic = "force-dynamic";
 export default async function Page() {
   const { data, error } = await supabase
     .from("claims")
-    .select("id, name, image_url, cardshop, sell_price, buy_price, bought")
-    .eq("bought", false)
-    .order("id");
+    .select("id, nombre_carta, imagen_claim, precio, tienda, precio_compra, comprada")
+    .not("comprada", "is", true)
+    .order("created_at", { ascending: false });
 
   if (error) {
     return (

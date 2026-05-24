@@ -58,17 +58,25 @@ export default function ClaimDeck({ claims }: Props) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="relative h-full w-full">
-              <Image
-                src={claim.image_url}
-                alt={claim.name}
-                fill
-                sizes="100vw"
-                priority
-                draggable={false}
-                style={{ objectFit: "contain", pointerEvents: "none" }}
-              />
-            </div>
+            {claim.imagen_claim ? (
+              <div className="relative h-full w-full">
+                <Image
+                  src={claim.imagen_claim}
+                  alt={claim.nombre_carta}
+                  fill
+                  sizes="100vw"
+                  priority
+                  draggable={false}
+                  style={{ objectFit: "contain", pointerEvents: "none" }}
+                />
+              </div>
+            ) : (
+              <div className="flex h-full w-full items-center justify-center rounded-2xl border border-neutral-800 bg-neutral-900 p-8">
+                <p className="text-center text-2xl font-medium text-neutral-200">
+                  {claim.nombre_carta}
+                </p>
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -87,16 +95,16 @@ export default function ClaimDeck({ claims }: Props) {
               Nombre
             </p>
             <p className="truncate text-base font-medium text-neutral-50">
-              {claim.name}
+              {claim.nombre_carta}
             </p>
           </div>
           <div className="grid grid-cols-3">
             <div className="border-r border-neutral-800 px-3 py-3">
               <p className="text-[11px] uppercase tracking-wider text-neutral-500">
-                Cardshop
+                Tienda
               </p>
               <p className="truncate text-sm text-neutral-50">
-                {claim.cardshop ?? "—"}
+                {claim.tienda ?? "—"}
               </p>
             </div>
             <div className="border-r border-neutral-800 px-3 py-3">
@@ -104,7 +112,7 @@ export default function ClaimDeck({ claims }: Props) {
                 Venta
               </p>
               <p className="truncate text-sm text-neutral-50">
-                {formatPrice(claim.sell_price)}
+                {formatPrice(claim.precio)}
               </p>
             </div>
             <div className="px-3 py-3">
@@ -112,7 +120,7 @@ export default function ClaimDeck({ claims }: Props) {
                 Compra
               </p>
               <p className="truncate text-sm text-neutral-50">
-                {formatPrice(claim.buy_price)}
+                {formatPrice(claim.precio_compra)}
               </p>
             </div>
           </div>

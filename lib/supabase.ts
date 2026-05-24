@@ -12,11 +12,11 @@ if (!url || !anonKey) {
 export const supabase = createClient(url, anonKey);
 
 export type Claim = {
-  id: string | number;
-  name: string;
-  image_url: string;
-  cardshop: string | null;
-  sell_price: number | null;
-  buy_price: number | null;
-  bought: boolean;
+  id: string;
+  nombre_carta: string;
+  imagen_claim: string | null;
+  precio: number | null;
+  tienda: string | null;
+  precio_compra: number | null;
+  comprada: boolean | null;
 };
