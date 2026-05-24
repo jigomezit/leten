@@ -18,5 +18,5 @@ export type Claim = {
   precio: number | null;
   tienda: string | null;
   precio_compra: number | null;
-  comprada: boolean | null;
+  comprada: string | null;
 };

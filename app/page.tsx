@@ -7,7 +7,7 @@ export default async function Page() {
   const { data, error } = await supabase
     .from("claims")
     .select("id, nombre_carta, imagen_claim, precio, tienda, precio_compra, comprada")
-    .not("comprada", "is", true)
+    .or("comprada.is.null,comprada.eq.sin_comprar")
     .order("created_at", { ascending: false });
 
   if (error) {
