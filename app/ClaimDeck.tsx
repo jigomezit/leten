@@ -264,14 +264,18 @@ export default function ClaimDeck({ claims: initialClaims }: Props) {
 
       <AnimatePresence>
         {confirmOpen && (
-          <motion.div
-            key="confirm"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 16 }}
-            transition={{ duration: 0.18 }}
-            className="absolute bottom-32 left-1/2 z-30 w-[88%] max-w-sm -translate-x-1/2 rounded-xl border border-neutral-700 bg-neutral-900/95 p-4 shadow-2xl backdrop-blur"
+          <div
+            key="confirm-wrap"
+            className="pointer-events-none absolute inset-x-0 bottom-32 z-30 flex justify-center px-4"
           >
+            <motion.div
+              key="confirm"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 16 }}
+              transition={{ duration: 0.18 }}
+              className="pointer-events-auto w-full max-w-sm rounded-xl border border-neutral-700 bg-neutral-900/95 p-4 shadow-2xl backdrop-blur"
+            >
             <p className="mb-3 text-sm text-neutral-100">
               Esta carta está comprada, desaparecerá.
             </p>
@@ -296,7 +300,8 @@ export default function ClaimDeck({ claims: initialClaims }: Props) {
                 {marking ? "Marcando…" : "Aceptar"}
               </button>
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
