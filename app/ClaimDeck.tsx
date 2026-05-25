@@ -400,7 +400,7 @@ export default function ClaimDeck({ claims: initialClaims }: Props) {
                   </span>
                 )}
                 {s.representative.precio !== null && (
-                  <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-bold leading-none text-white shadow-lg">
+                  <span className="pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-red-600 px-2 py-0.5 text-[11px] font-bold leading-none text-white shadow-lg">
                     ¥{yenFmt.format(Math.round(s.representative.precio * USD_TO_YEN))}
                   </span>
                 )}
