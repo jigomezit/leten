@@ -9,6 +9,7 @@ export default async function Page() {
     .select("id, nombre_carta, imagen_claim, precio, tienda, precio_compra, comprada")
     .or("comprada.is.null,comprada.eq.sin_comprar")
     .neq("estado", "Enviado")
+    .not("nombre_carta", "ilike", "gasha%")
     .order("created_at", { ascending: false });
 
   if (error) {
