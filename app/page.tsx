@@ -8,6 +8,7 @@ export default async function Page() {
     .from("claims")
     .select("id, nombre_carta, imagen_claim, precio, tienda, precio_compra, comprada")
     .or("comprada.is.null,comprada.eq.sin_comprar")
+    .neq("estado", "Enviado")
     .order("created_at", { ascending: false });
 
   if (error) {
