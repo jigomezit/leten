@@ -369,12 +369,6 @@ export default function ClaimDeck({ claims: initialClaims }: Props) {
     >
       {toolbar}
 
-      {viewMode === "card" && stack.count > 1 && (
-        <div className="shrink-0 border-b border-emerald-900/50 bg-emerald-900/30 px-4 py-2 text-center text-sm font-medium text-emerald-200">
-          Comprar {stack.count} unidades
-        </div>
-      )}
-
       {viewMode === "gallery" ? (
         <div className="flex-1 overflow-y-auto">
           <div className="grid grid-cols-4 gap-1 p-1">
@@ -457,11 +451,11 @@ export default function ClaimDeck({ claims: initialClaims }: Props) {
               <button
                 onClick={backToGallery}
                 aria-label="Volver a galería"
-                className="absolute left-3 top-3 z-10 rounded-full bg-black/40 p-2 text-neutral-100 shadow-lg backdrop-blur-sm active:scale-90 active:bg-neutral-700/80"
+                className="absolute left-3 top-3 z-10 rounded-full bg-black/40 p-3 text-neutral-100 shadow-lg backdrop-blur-sm active:scale-90 active:bg-neutral-700/80"
               >
                 <svg
-                  width="22"
-                  height="22"
+                  width="32"
+                  height="32"
                   viewBox="0 0 24 24"
                   fill="none"
                   aria-hidden
@@ -475,6 +469,12 @@ export default function ClaimDeck({ claims: initialClaims }: Props) {
                   />
                 </svg>
               </button>
+            )}
+
+            {stack.count > 1 && (
+              <div className="pointer-events-none absolute left-1/2 top-3 z-10 -translate-x-1/2 rounded-full bg-emerald-900/70 px-4 py-1.5 text-sm font-medium text-emerald-100 shadow-lg backdrop-blur-sm">
+                Comprar {stack.count} unidades
+              </div>
             )}
 
             <button
