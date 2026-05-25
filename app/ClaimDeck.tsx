@@ -399,6 +399,11 @@ export default function ClaimDeck({ claims: initialClaims }: Props) {
                     x{s.count}
                   </span>
                 )}
+                {s.representative.precio !== null && (
+                  <span className="absolute bottom-1 right-1 rounded-full bg-red-600 px-1.5 py-0.5 text-[11px] font-bold leading-none text-white shadow">
+                    ¥{yenFmt.format(Math.round(s.representative.precio * USD_TO_YEN))}
+                  </span>
+                )}
               </button>
             ))}
           </div>
